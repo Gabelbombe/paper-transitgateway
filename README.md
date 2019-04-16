@@ -34,4 +34,4 @@ In addition to VPC peering connection requirements, as the number of VPCs owned 
 
 ![Look at att those chickens....](assets/transit-assoc.png)
 
-<sub><center><b>Image 3:</b>A sample Transit VPC solution and associated connectivity between VPCs</center></sub>
+<sub><center><b>Image 3:</b> A sample Transit VPC solution and associated connectivity between VPCs</center></sub>
