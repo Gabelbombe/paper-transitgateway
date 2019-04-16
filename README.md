@@ -26,3 +26,6 @@ As you can see, 5 interconnected VPCs which are also connected to an On-Premise 
 ![This is not really a RACI](assets/raci.png)
 
 <sup><center><b>Image 2:</b> Growth of peering connections required to connect VPCs in a full-mesh network</center></sup>
+
+
+_Image 2_ shows how the number of peering connections required to connect VPCs in a [full-mesh network](https://www.webopedia.com/TERM/M/mesh.html) grows exponentially as the number of VPCs increases. The scenario illustrated in _Image 1_ is slightly far-fetched as it’s unlikely that all VPCs will require a peering connection in a real-world solution. However, it helps to show how quickly the number of connections can grow given VPC peering requirements.
