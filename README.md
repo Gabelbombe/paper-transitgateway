@@ -19,4 +19,4 @@ As organizations have moved to AWS in recent years, [Virtual Private Clouds](htt
 
 ![VPC Peering Flow Diagram](assets/vpc-peering.png)
 
-<sup><center><b>Image 1:</b> Counting the number of connections required to connect VPCs to each other and On-Premise</center>/sup>
+<sup><center><b>Image 1:</b> Counting the number of connections required to connect VPCs to each other and On-Premise</center></sup>
