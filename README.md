@@ -20,3 +20,9 @@ As organizations have moved to AWS in recent years, [Virtual Private Clouds](htt
 ![VPC Peering Flow Diagram](assets/vpc-peering.png)
 
 <sup><center><b>Image 1:</b> Counting the number of connections required to connect VPCs to each other and On-Premise</center></sup>
+
+As you can see, 5 interconnected VPCs which are also connected to an On-Premise location require 10 distinct VPC peering connections and 5 VPN connections. For true redundancy, there would also be an additional 5 VPN connections to a second Customer Gateway (CGW) On-Premise.
+
+![This is not really a RACI](assets/raci.png)
+
+<sup><center><b>Image 2:</b> Growth of peering connections required to connect VPCs in a full-mesh network</center></sup>
