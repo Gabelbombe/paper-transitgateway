@@ -28,9 +28,9 @@ As you can see, 5 interconnected VPCs which are also connected to an On-Premise 
 <sub><center><b>Image 2:</b> Growth of peering connections required to connect VPCs in a full-mesh network</center></sub>
 
 
-_**Image 2**_ shows how the number of peering connections required to connect VPCs in a [full-mesh network](https://www.webopedia.com/TERM/M/mesh.html) grows exponentially as the number of VPCs increases. The scenario illustrated in _**Image 1**_ is slightly far-fetched as it’s unlikely that all VPCs will require a peering connection in a real-world solution. However, it helps to show how quickly the number of connections can grow given VPC peering requirements.
+_**Image 2**_ shows how the number of peering connections required to connect VPCs in a [full-mesh network](https://www.webopedia.com/TERM/M/mesh.html) grows exponentially as the number of VPCs increases. The scenario illustrated in _**Image 1**_ is slightly far-fetched as it's unlikely that all VPCs will require a peering connection in a real-world solution. However, it helps to show how quickly the number of connections can grow given VPC peering requirements.
 
-In addition to VPC peering connection requirements, as the number of VPCs owned by an organization has grown from tens to hundreds to thousands, the creation and management of connections from VPCs to On-Premise infrastructure has proven to be a major challenge. To tackle this, AWS introduced a [Transit VPC solution](https://aws.amazon.com/blogs/aws/aws-solution-transit-vpc/) in mid-2016, as shown in _**Image 3**_ below.
+In addition to VPC peering connection requirements, as the number of VPCs owned by an organization has grown from tens to hundreds to thousands, the creation and management of connections from VPCs to On-Premise infrastructure has proven to be a major challenge. To tackle this, AWS introduced a [Transit VPC solution](https://aws.amazon.com/blogs/aws/aws-solution-transit-vpc/) in mid-2016, as shown in _ww_ below.
 
 ![Look at att those chickens....](assets/transit-assoc.png)
 
@@ -45,3 +45,11 @@ A [Transit VPC solution](https://aws.amazon.com/blogs/aws/aws-solution-transit-v
 Considering the challenges discussed above, the release of AWS Transit Gateway is an exciting development. Utilizing Transit Gateway, you only need to create and manage a single connection, this is called a Transit Gateway Attachment, these exist between the Gateway and each Amazon VPC (or additionally upir On-Premise locations). The Transit Gateway will maintain its own routing tables, these are separate from the route tables associated with subnets within individual VPCs.
 
 ![Premature Refinement](assets/gateway-assoc.png)
+
+<sub><center><b>Image 4:</b> High-Level Overview of Transit Gateway, Transit Gateway Attachments, and Transit Gateway Route Table</center></sub>
+
+![Routing your Gateways](assets/route-table.png)
+
+AWS Transit Gateway removes the need to configure peering connections between VPCs that need to communicate. Instead, each individual VPC is associated with the Transit Gateway using a Transit Gateway Attachment, as shown in _**Image 4**_. The Transit Gateway Routing Table (also shown in _**Image 4**_) contains a complete list of all VPCs and VPNs associated with the Transit Gateway and their respective Transit Gateway Attachments. Within the routing tables associated with a particular VPC subnet (example shown in _**Image 5**_), traffic destined for another VPCs CIDR range is simply directed towards the source VPCs Transit Gateway Attachment. Once traffic reaches the Transit Gateway via that attachment, the Transit Gateway Route Table is used to determine which attachment to use to send the traffic to its final destination.
+
+In addition to making it easier to interconnect VPCs, AWS Transit Gateway removes the cross availability-zone data charges that exist when utilizing VPC peering connections. Instead, AWS Transit Gateway charges a flat fee per Transit Gateway attachment and then per GB of data that flows through the Gateway, regardless of source and destination. Information on Transit Gateway pricing can be [found here](https://aws.amazon.com/transit-gateway/pricing/).
