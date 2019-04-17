@@ -63,3 +63,7 @@ Although Transit Gateway greatly simplifies the management of connections from A
   - Firewall devices
   - Intrusion Detection and Prevention (IDP)
   - Unified Threat Management (UTM)
+
+In the cases such as above, Transit Gateway and Transit VPC solutions can be used, and are recommended to achieve these goals.
+
+AWS Transit Gateway is a welcome release that solves a number of networking related challenges. However, additional functionality is expected in 2019 that will further increase its value for organizations of all sizes. At present, hybrid connectivity between AWS Transit Gateway and On-Premise networks can only be established via VPN connections. Although Transit Gateway supports VPN connections with [ECMP](https://en.wikipedia.org/wiki/Equal-cost_multi-path_routing) enabled, support for AWS Direct Connect is also slated to be released early 2019. This will allow for multi-Gbps connections in and out of the Transit Gateway via a single connection. In addition to added support for AWS Direct Connect, AWS have indicated that they will soon make it possible to connect Transit Gateways in separate AWS Regions via the release of Transit Gateway Peering. This will allow organizations to build globally distributed networks with minimal effort.
