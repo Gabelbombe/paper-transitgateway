@@ -56,3 +56,10 @@ In addition to making it easier to interconnect VPCs, AWS Transit Gateway remove
 
 
 The Transit Gaetway serves as the central network connectivity hub, thus replacing (in most circumstances) the requirements shown in _**Image 3**_. Instead, VPN connections are associated with the Transit Gateway via a Transit Gateway Attachment in the same way that VPCs are. With this, traffic from On-Premise networks can be directed to any other network attached to the Transit Gateway as long as route table entries allow it to do so. Although VPN traffic is limited to a 1.25 Gbps bandwidth per VPN tunnel, Transit Gateway includes Equal Path Multi-Cost (ECMP) routing support. Assuming the other end of the VPN connection supports ECMP, traffic can be equally distributed between any number of VPN connections to scale the effective bandwidth.
+
+Although Transit Gateway greatly simplifies the management of connections from AWS to On-Premise networks, organizations may prefer to utilize a Transit VPC solution if they require additional monitoring and visibility or further security features, such as:
+
+  - Outbound URL filtering
+  - Firewall devices
+  - Intrusion Detection and Prevention (IDP)
+  - Unified Threat Management (UTM)
