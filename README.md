@@ -54,7 +54,6 @@ AWS Transit Gateway removes the need to configure peering connections between VP
 
 In addition to making it easier to interconnect VPCs, AWS Transit Gateway removes the cross availability-zone data charges that exist when utilizing VPC peering connections. Instead, AWS Transit Gateway charges a flat fee per Transit Gateway attachment and then per GB of data that flows through the Gateway, regardless of source and destination. Information on Transit Gateway pricing can be [found here](https://aws.amazon.com/transit-gateway/pricing/).
 
-
 The Transit Gaetway serves as the central network connectivity hub, thus replacing (in most circumstances) the requirements shown in _**Image 3**_. Instead, VPN connections are associated with the Transit Gateway via a Transit Gateway Attachment in the same way that VPCs are. With this, traffic from On-Premise networks can be directed to any other network attached to the Transit Gateway as long as route table entries allow it to do so. Although VPN traffic is limited to a 1.25 Gbps bandwidth per VPN tunnel, Transit Gateway includes Equal Path Multi-Cost (ECMP) routing support. Assuming the other end of the VPN connection supports ECMP, traffic can be equally distributed between any number of VPN connections to scale the effective bandwidth.
 
 Although Transit Gateway greatly simplifies the management of connections from AWS to On-Premise networks, organizations may prefer to utilize a Transit VPC solution if they require additional monitoring and visibility or further security features, such as:
@@ -67,3 +66,8 @@ Although Transit Gateway greatly simplifies the management of connections from A
 In the cases such as above, Transit Gateway and Transit VPC solutions can be used, and are recommended to achieve these goals.
 
 AWS Transit Gateway is a welcome release that solves a number of networking related challenges. However, additional functionality is expected in 2019 that will further increase its value for organizations of all sizes. At present, hybrid connectivity between AWS Transit Gateway and On-Premise networks can only be established via VPN connections. Although Transit Gateway supports VPN connections with [ECMP](https://en.wikipedia.org/wiki/Equal-cost_multi-path_routing) enabled, support for AWS Direct Connect is also slated to be released early 2019. This will allow for multi-Gbps connections in and out of the Transit Gateway via a single connection. In addition to added support for AWS Direct Connect, AWS have indicated that they will soon make it possible to connect Transit Gateways in separate AWS Regions via the release of Transit Gateway Peering. This will allow organizations to build globally distributed networks with minimal effort.
+
+
+### Shared VPCs
+
+The release of Virtual Private Cloud (VPC) functionality was one of the first steps towards the logical isolation of workloads in AWS, this was a huge departure from the historic [EC2 CLassic network](https://docs.rightscale.com/faq/clouds/aws/What_is_an_EC2-Classic_network.html). with so many corporations having migrated their workloads to AWS in the years since, often creating hundreds to thousands of VPCs to support a wide variety of use cases. As discussed when outlining the challenges of networking at scale in AWS, the management of this many VPCs can take significant time and effort.
