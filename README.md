@@ -28,9 +28,9 @@ As you can see, 5 interconnected VPCs which are also connected to an On-Premise 
 <sub><center><b>Image 2:</b> Growth of peering connections required to connect VPCs in a full-mesh network</center></sub>
 
 
-_Image 2_ shows how the number of peering connections required to connect VPCs in a [full-mesh network](https://www.webopedia.com/TERM/M/mesh.html) grows exponentially as the number of VPCs increases. The scenario illustrated in _Image 1_ is slightly far-fetched as it’s unlikely that all VPCs will require a peering connection in a real-world solution. However, it helps to show how quickly the number of connections can grow given VPC peering requirements.
+_**Image 2**_ shows how the number of peering connections required to connect VPCs in a [full-mesh network](https://www.webopedia.com/TERM/M/mesh.html) grows exponentially as the number of VPCs increases. The scenario illustrated in _**Image 1**_ is slightly far-fetched as it’s unlikely that all VPCs will require a peering connection in a real-world solution. However, it helps to show how quickly the number of connections can grow given VPC peering requirements.
 
-In addition to VPC peering connection requirements, as the number of VPCs owned by an organization has grown from tens to hundreds to thousands, the creation and management of connections from VPCs to On-Premise infrastructure has proven to be a major challenge. To tackle this, AWS introduced a [Transit VPC solution](https://aws.amazon.com/blogs/aws/aws-solution-transit-vpc/) in mid-2016, as shown in _Image 3_.
+In addition to VPC peering connection requirements, as the number of VPCs owned by an organization has grown from tens to hundreds to thousands, the creation and management of connections from VPCs to On-Premise infrastructure has proven to be a major challenge. To tackle this, AWS introduced a [Transit VPC solution](https://aws.amazon.com/blogs/aws/aws-solution-transit-vpc/) in mid-2016, as shown in _**Image 3**_ below.
 
 ![Look at att those chickens....](assets/transit-assoc.png)
 
