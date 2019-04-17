@@ -35,3 +35,13 @@ In addition to VPC peering connection requirements, as the number of VPCs owned 
 ![Look at att those chickens....](assets/transit-assoc.png)
 
 <sub><center><b>Image 3:</b> A sample Transit VPC solution and associated connectivity between VPCs</center></sub>
+
+
+A [Transit VPC solution](https://aws.amazon.com/blogs/aws/aws-solution-transit-vpc/) uses host-based VPN appliances in a dedicated VPC to perform transitive routing between networks through a central hub. The introduction of additional VPCs only requires new VPN connections between the host devices and the VPC, rather than additional connections to the On-Premise CGW. Although reducing the number of On-Premise connections, dedicated host appliances add additional cost and management overhead. In addition, his solution will not help to reduce the number of VPC peering connections required.
+
+
+### AWS Transit Gateway
+
+Considering the challenges discussed above, the release of AWS Transit Gateway is an exciting development. Utilizing Transit Gateway, you only need to create and manage a single connection, this is called a Transit Gateway Attachment, these exist between the Gateway and each Amazon VPC (or additionally upir On-Premise locations). The Transit Gateway will maintain its own routing tables, these are separate from the route tables associated with subnets within individual VPCs.
+
+![Premature Refinement](assets/gateway-assoc.png)
