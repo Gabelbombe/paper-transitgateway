@@ -1,16 +1,16 @@
 # Next-Generation Networking with AWS Transit Gateway
 
-An announcement in AWS' networking space, the release of **AWS Transit Gateway** and the introduction of **Shared VPCs** has particularly caught my attention. AWS Transit Gateway is a truly game-changing technology solution as it provides a central hub for connecting AWS VPCs and VPN connections, while Shared VPC eases the pain of managing multiple VPCs by allowing you to centrally manage and distribute them to accounts in your organization.
+An huge announcement in Amazon Web Services networking space happened fairly recently, it was the release of **AWS Transit Gateway** and the introduction of **Shared VPCs** has particularly caught my attention, and has been one of my recent obsessions. AWS Transit Gateway is a truly game-changing technology, as it provides a central hub for connecting AWS VPCs and VPNs, while Shared VPC eases the pain of managing multiple VPCs by allowing you to centrally manage and distribute them to accounts.
 
-![Welcome to Cable Hell](assets/transitgateway.jpg)
+![Welcome to Cable Hell](assets/cable-hell.jpg)
 
-Considering the array of cutting-edge services at your fingertips within the AWS platform, it's fairly easy to understand why a core topic such as network architecture often draws less of a crowd, or the ire of most.
+Considering the array of cutting-edge services at your fingertips within the AWS platform, it's fairly easy to understand why a core topic such as network architecture often draws less of a crowd, or the ire of most. Let's face it, networking isn't really an exciting topic to us _tech-types_.
 
-But answer me this: Would you build a new house without first knowing that the foundations were solid?
+**But answer me this**: Would you build a new house without first knowing that the foundations were solid?
 
-While I am amazed by AWS and their continued product releases in areas such as IoT, real-time data streaming and now even Satellite communication, I remain passionate about fundamental content such as multi-account strategies, governance at scale, and network architectures in the cloud. As a cloud architect, these are the foundations that pave the way for success in our respective journeys with Amazons cloud ecosystem.
+While I am amazed by AWS and their continued product releases in areas such as IoT (Internet of Things), real-time data streaming and now even Satellite communication, I remain passionate about fundamentals, such as multi-account strategies, governance at scale and network architectures in the cloud. As a Cloud Architect and Evangelist, these are the foundations that pave the way for success in our respective journeys with all cloud ecosystems, not just AWS.
 
-I'll start by discussing the historical challenges of networking at scale in AWS, before outlining each service and discussing how I believe their combination will alter the design of foundational network architectures in AWS going forward.
+I'll start by discussing the historical challenges of networking at scale in AWS, then outlining each service and discussing how I believe their combination will alter the design of foundational network architecture in AWS going forward.
 
 
 ### The Challenges of Networking at Scale in AWS
@@ -73,3 +73,19 @@ AWS Transit Gateway is a welcome release that solves a number of networking rela
 The release of Virtual Private Cloud (VPC) functionality was one of the first steps towards the logical isolation of workloads in AWS, this was a huge departure from the historic [EC2 CLassic network](https://docs.rightscale.com/faq/clouds/aws/What_is_an_EC2-Classic_network.html). with so many corporations having migrated their workloads to AWS in the years since, often creating hundreds to thousands of VPCs to support a wide variety of use cases. As discussed when outlining the challenges of networking at scale in AWS, the management of this many VPCs can take significant time and effort.
 
 AWS has always prided themselves as being a customer-focused company, with approximately 95% of all service releases coming as a result of user feedback. In this case, persistent requests from customers challenged AWS to make the management of VPCs at scale easier. Unveiled at the last re:Invent, their solution was to introduce Shared VPCs. Simply put, VPC sharing allows for many AWS accounts to create their resources within a centrally managed VPC. The AWS account that creates and owns the VPC can choose to share particular subnets with other AWS accounts within the same [AWS Organization](https://aws.amazon.com/organizations/). Once a particular subnet is shared with an account, it can then create, view and modify resources it owns within those particular subnets.
+
+![Sharing the VPCs among TGW](assets/sharing-vpcs.png)
+
+<sub><center><b>Image 6:</b> Sharing a VPC with multiple AWS Accounts using Resource Shares</center></sub>
+
+Looking at _**Image 6**_, imagine you want to create a VPC that you can share with all of the development level accounts for a particular business unit. If you allocate the largest VPC CIDR block possible, 16-bits, this provides you with **65,536** IP addresses that can be grouped and shared using subnet sizes of your choice. For example, you could create `256` subnets of size `/24` (each with 256 IP addresses) or 1024 subnets of size `/26` (each with 64 IP addresses). Once you have defined your subnets, you can then share any of them with any account within your AWS Organization using a Resource Share. To implement a granular level of segmentation, subnet NACLs can be used to fence off access between specific subnets, ports or destinations.
+
+While it's true that utilizing Shared VPCs can reduce the number of VPCs and overall management burden, it's important to realize that it's not a **one-size-fits-all** solution. Significant thought needs to be put into how many VPCs to utilize and how to share their subnets between accounts.
+
+For example, some questions to ask include:
+
+  - At what level will VPCs be defined? — Per line of business? Per team? Per project?
+  - Which VPCs should route traffic to one another? Should certain subnets have dedicated route tables?
+  - Which VPC subnets require strict traffic flow management using subnet NACLs?
+
+Working together as an organization to answer questions such as these and define all aspects of network management is extremely important.
