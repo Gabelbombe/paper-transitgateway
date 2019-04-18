@@ -42,7 +42,7 @@ A [Transit VPC solution](https://aws.amazon.com/blogs/aws/aws-solution-transit-v
 
 ### AWS Transit Gateway
 
-Considering the challenges discussed above, the release of AWS Transit Gateway is an exciting development. Utilizing Transit Gateway, you only need to create and manage a single connection, this is called a Transit Gateway Attachment, these exist between the Gateway and each Amazon VPC (or additionally upir On-Premise locations). The Transit Gateway will maintain its own routing tables, these are separate from the route tables associated with subnets within individual VPCs.
+Considering the challenges discussed above, the release of AWS Transit Gateway is an exciting development. Utilizing Transit Gateway, you only need to create and manage a single connection, this is called a Transit Gateway Attachment, these exist between the Gateway and each Amazon VPC (or additionally in your On-Premise locations). The Transit Gateway will maintain its own routing tables, these are separate from the route tables associated with subnets within individual VPCs.
 
 ![Premature Optimization](assets/gateway-assoc.png)
 
