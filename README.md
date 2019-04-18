@@ -2,7 +2,7 @@
 
 An huge announcement in Amazon Web Services networking space happened fairly recently, it was the release of **AWS Transit Gateway** and the introduction of **Shared VPCs** has particularly caught my attention, and has been one of my recent obsessions. AWS Transit Gateway is a truly game-changing technology, as it provides a central hub for connecting AWS VPCs and VPNs, while Shared VPC eases the pain of managing multiple VPCs by allowing you to centrally manage and distribute them to accounts.
 
-![Welcome to Cable Hell](assets/cable-hell.jpg)
+![Welcome to Cable Hell](assets/cyber-attack.jpg)
 
 Considering the array of cutting-edge services at your fingertips within the AWS platform, it's fairly easy to understand why a core topic such as network architecture often draws less of a crowd, or the ire of most. Let's face it, networking isn't really an exciting topic to us _tech-types_.
 
